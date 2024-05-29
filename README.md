@@ -1,3 +1,5 @@
+# Important Note
+This project is still in development , may contain some bugs and issues
 # Nearfield Instruments Assignment
 A simple demonstration of the interview assignment by nearfield instruments.
 The whole project is created using Terraform and some Python for Lambda.
