@@ -13,8 +13,24 @@ resource "aws_iam_role" "iam_for_report" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "ec2.amazonaws.com"
+          Service = "lambda.amazonaws.com"
         }
+      },
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ses.amazonaws.com"
+      } },
+      {
+        Action = "sts:AssumeRole"
+        Effect = "Allow"
+        Sid    = ""
+        Principal = {
+          Service = "ce.amazonaws.com"
+        }
+        Resource = "arn:aws:iam::aws:policy/service-role/AWSCostAndUsageReportAutomationPolicy"
       }
     ]
   })
