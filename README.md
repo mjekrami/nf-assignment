@@ -49,3 +49,15 @@ you can test the finance report locally on your PC. if you have sufficient privi
 REPORT_GRANULARITY="DAILY" python3 modules/notification/finance_report/finance_reporty.py --dry-run
 ```
 The output is a simple `number USD` which shows the amount of billing for the day that script was run.
+# Overnight Uptime Alarming with SNS (TBD)
+For overnight uptime alarming TODO:
+1. create a base image with Ubuntu that has `awscli` package
+2. create a topic in SNS 
+```bash
+aws sns create-topic --name overtime
+```
+3. create a `subscribe.sh` that subscribes the instances to the topic.
+```bash
+aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:overtime --message "The instance ${HOSTNAME} is still up and running."
+```
+4. register the script to `cron` and set it to `0 0 * * *`
