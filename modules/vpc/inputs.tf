@@ -20,12 +20,12 @@ variable "private_subnet_cidr" {
   description = "The private subnet"
 }
 
-variable "public_subnet_name" {
+#Loadbalancer
+variable "load_balancer_type" {
   type    = string
-  default = "public_subnet"
+  default = "network"
 }
-
-variable "private_subnet_name" {
-  type    = string
-  default = "private_subnet"
+variable "target_lb_port" {
+  type    = number
+  default = 8080
 }

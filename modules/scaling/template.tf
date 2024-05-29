@@ -5,5 +5,5 @@ resource "aws_launch_template" "launch_template" {
   monitoring {
     enabled = true
   }
-
+  security_group_names = [var.instance_security_group]
 }
