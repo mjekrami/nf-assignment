@@ -62,3 +62,4 @@ aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:overtime --messag
 ```
 4. register the script to `cron` and set it to `0 0 * * *`
 5. Subscribe a `overtime.py` to SNS to look for any new notification on overtim topic and send it to recipients.
+![image](./Diagram-SNS.png "Simple Diagram")
