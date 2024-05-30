@@ -14,7 +14,7 @@ loadbalancer.
 
 # Scaling
 Scaling module is responsible for setting the Autoscaling group and template required for spinning up the EC2 instances. 
-scaling has 3 main parameters\
+scaling has 3 main parameters
 1. Min Size: for minimum size of the EC2 instances
 2. Max Size: for maximum size of the EC2 instances
 3. Desired Size: the initial size that we want to maintain during the hours
@@ -38,7 +38,7 @@ A simple Python script that uses `boto3` (AWS API client for python). We use 2 s
 1. Cost Explorer Client: A set of APIs for getting some financial reports.
 2. SESv2 Client: A client for sending out email and bulk emails to recipients
 
-There are 3 most important parameters that should be passed to notification module:\
+There are 3 most important parameters that should be passed to notification module:
 1. Recipients: A list of email addresses seperated by `;` that `finance_report` should send the email to
 2. Source Email: The source of the email that came from (on production you can set it to `devops@nearfield-instruments.com`)
 3. Granularity: Is the shortest unit of time that billing should be grouped by. possible values are `HOURLY`,`DAILY`,`MONTHLY`\
@@ -61,3 +61,4 @@ aws sns create-topic --name overtime
 aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:overtime --message "The instance ${HOSTNAME} is still up and running."
 ```
 4. register the script to `cron` and set it to `0 0 * * *`
+5. Subscribe a `overtime.py` to SNS to look for any new notification on overtim topic and send it to recipients.
