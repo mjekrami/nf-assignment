@@ -56,7 +56,7 @@ For overnight uptime alarming TODO:
 ```bash
 aws sns create-topic --name overtime
 ```
-3. create a `subscribe.sh` that subscribes the instances to the topic.
+3. create a `publish.sh` that publishes the overtime message to the topic.
 ```bash
 aws sns publish --topic-arn arn:aws:sns:us-east-1:123456789012:overtime --message "The instance ${HOSTNAME} is still up and running."
 ```
