@@ -14,3 +14,8 @@ class Overtime:
         except:
             print(f"Cloud not subscribe {protocol} {endpoint} to topic {topic}")
             raise
+
+
+def main():
+    # To be implemented
+    pass
